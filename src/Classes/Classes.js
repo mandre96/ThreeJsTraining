@@ -33,6 +33,9 @@ export default class Classes
         this.time = new Time()
         this.scene = new THREE.Scene()
         this.resources = new Resources(sources)
+
+        console.log(this.resources.items)
+        
         this.camera = new Camera()
         this.renderer = new Renderer()
         this.world = new World()

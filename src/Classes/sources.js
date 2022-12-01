@@ -14,7 +14,7 @@ export default [
     },
     {
         name: 'colonModel',
-        type: 'objfModel',
-        path: 'models/mesh/colon_e022.obj'
+        type: 'objModel',
+        path: '../models/mesh/colon_e022.obj'
     }
 ]

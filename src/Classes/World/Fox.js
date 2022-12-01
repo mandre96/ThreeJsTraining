@@ -10,23 +10,22 @@ export default class Fox
         this.resources = this.classes.resources
 
          // Setup
-         this.resource = this.resources.items.colonModel
+         this.colonModel = this.resources.items.colonModel //Esse atributo é a malha
+        
+         //TODO implementar o MeshPhongMaterial
+         // Retirar do código tudo o que não está sendo utilizado!
+         console.log(this.colonModel)
 
          this.setModel()
     }
     setModel()
     {
-        this.model = this.resource.scene
+        //this.model = this.resource.scene
+        //console.log(model)
         ///TODO Track
-        this.model.scale.set(0.02, 0.02, 0.02)
-        this.scene.add(this.model)
+        this.colonModel.scale.set(0.02, 0.02, 0.02)
+        this.scene.add(this.colonModel)
 
-        this.model.traverse((child) =>
-        {
-            if(child instanceof THREE.Mesh)
-            {
-                child.castShadow = true
-            }
-        })
+    
     }
 }

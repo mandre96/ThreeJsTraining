@@ -3,6 +3,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import EventEmitter from './EventEmitter.js'
 
+const path = '../../static/models/mesh/colon_e022.obj'
+
 export default class Resources extends EventEmitter
 {
     constructor(sources)
@@ -43,7 +45,7 @@ export default class Resources extends EventEmitter
                     }
                 )
             }
-            else if(source.type === 'objfModel')
+            else if(source.type === 'objModel')
             {
                 this.loaders.objLoader.load(
                     source.path,
