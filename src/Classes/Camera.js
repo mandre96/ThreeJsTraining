@@ -1,17 +1,21 @@
 import * as THREE from 'three'
 import Classes from './Classes.js'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { TrackballControls } from "three/examples/jsm/controls/TrackballControls"
 
+// mudar
 export default class Camera
 {
+    
     constructor()
     {
         this.classes = new Classes()
         this.sizes = this.classes.sizes
         this.scene = this.classes.scene
         this.canvas = this.classes.canvas
-
+       
         this.setInstance()
+        
+        this._controls = new TrackballControls(this.instance, this.canvas)
         this.setControls()
     }
 
@@ -24,8 +28,18 @@ export default class Camera
 
     setControls()
     {
-        this.controls = new OrbitControls(this.instance, this.canvas)
-        this.controls.enableDamping = true
+        
+        this._controls.rotateSpeed = 2.0;
+        this._controls.zoomSpeed = 2.2;
+        this._controls.panSpeed = 0.1;
+        this._controls.noZoom = false;
+        this._controls.noPan = false;
+        this._controls.staticMoving = true;
+        this._controls.dynamicDampingFactor = 0.2;
+        this._controls.keys = [ 'KeyA', 'KeyS', 'KeyD' ];
+        this._controls.minDistance = 0.01;
+        this._controls.maxDistance = 5000;
+        
     }
 
     resize()
@@ -36,6 +50,6 @@ export default class Camera
 
     update()
     {
-        this.controls.update()
+        this._controls.update()
     }
 }

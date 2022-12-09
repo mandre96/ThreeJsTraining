@@ -1,6 +1,6 @@
 import Classes from '../Classes.js'
 import Environment from './Environment.js'
-import Fox from './Fox.js'
+import Colon from './Colon.js'
 
 export default class World
 {
@@ -16,7 +16,7 @@ export default class World
         this.resources.on('ready', () =>
         {
             // Setup
-            this.fox = new Fox()
+            this.colon = new Colon()
             this.environment = new Environment()
         })
     }
