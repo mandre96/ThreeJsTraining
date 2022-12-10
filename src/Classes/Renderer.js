@@ -5,7 +5,7 @@ export default class Renderer
 {
     constructor()
     {
-        this.classes = new Classes()
+        //this.classes = new Classes() //Errado Classes.singleton();
         this.canvas = this.classes.canvas
         this.sizes = this.classes.sizes
         this.scene = this.classes.scene

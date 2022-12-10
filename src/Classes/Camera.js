@@ -4,11 +4,11 @@ import { TrackballControls } from "three/examples/jsm/controls/TrackballControls
 
 // mudar
 export default class Camera
-{
+{   
     
     constructor()
     {
-        this.classes = new Classes()
+       // this.classes = new Classes() //erro grotesco
         this.sizes = this.classes.sizes
         this.scene = this.classes.scene
         this.canvas = this.classes.canvas
