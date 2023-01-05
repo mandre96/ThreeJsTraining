@@ -1,12 +1,12 @@
 import * as THREE from 'three'
-import Classes from '../Classes.js'
+import Application from '../Application.js'
 import Resources from '../Utils/Resources.js';
 
 
 export default class Colon
 {
 
-    private _classes:Classes;
+    private _Application:Application;
     private _scene: THREE.Scene;
     private _resources:Resources;
     
@@ -15,10 +15,9 @@ export default class Colon
 
     constructor()
     {
-        //this._classes = new Classes(); //utilizar o singleton! Classes.singleton();
-        
-        this._scene = this._classes.scene!; //Corrigir o acesso
-        this._resources = this._classes.resources!;
+        this._Application = Application.singleton(); //utilizar o singleton! 
+        this._scene = this._Application.scene!; //Corrigir o acesso
+        this._resources = this._Application.resources!;
         
 
         // Setup

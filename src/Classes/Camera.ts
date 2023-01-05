@@ -1,29 +1,35 @@
 import * as THREE from 'three'
-import Classes from './Classes.js'
+import Application from './Application.js'
 import { TrackballControls } from "three/examples/jsm/controls/TrackballControls"
-
+import Sizes from './Utils/Sizes.js';
 // mudar
 export default class Camera
-{   
-    
+{
+	public Application: any;
+	private _sizes:Sizes;
+	private _scene: THREE.Scene;
+	private _canvas: HTMLCanvasElement;
+	private _controls:TrackballControls;
+	public instance:any;
+
     constructor()
     {
-       // this.classes = new Classes() //erro grotesco
-        this.sizes = this.classes.sizes
-        this.scene = this.classes.scene
-        this.canvas = this.classes.canvas
+        //this.classes = new Classes()
+        this._sizes = this.Application.sizes
+        this._scene = this.Application.scene
+        this._canvas = this.Application.canvas
        
         this.setInstance()
         
-        this._controls = new TrackballControls(this.instance, this.canvas)
+        this._controls = new TrackballControls(this.instance, this._canvas)
         this.setControls()
     }
 
     setInstance()
     {
-        this.instance = new THREE.PerspectiveCamera(35, this.sizes.width / this.sizes.height, 0.1, 100)
+        this.instance = new THREE.PerspectiveCamera(35, this._sizes.width / this._sizes.height, 0.1, 100)
         this.instance.position.set(6, 4, 8)
-        this.scene.add(this.instance)
+        this._scene.add(this.instance)
     }
 
     setControls()
@@ -44,7 +50,7 @@ export default class Camera
 
     resize()
     {
-        this.instance.aspect = this.sizes.width / this.sizes.height
+        this.instance.aspect = this._sizes.width / this._sizes.height
         this.instance.updateProjectionMatrix()
     }
 

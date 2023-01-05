@@ -5,29 +5,30 @@ import Time from './Utils/Time.js'
 import Camera from './Camera.js'
 import Renderer from './Renderer.js'
 import World from './World/World.js'
-import Resources from './Utils/Resources'
-import {sourceArray,SourceObject} from './sources'
+import Resources from './Utils/Resources.js'
+import {sourceArray,SourceObject} from './sources.js'
 
 
 let instance = null
 
-export default class Classes //Trocar o nome para Application
+export default class Application 
 {      
-    private static _instance: Classes;
+    private static _instance: Application;
 
    
-    private _canvas:HTMLCanvasElement;
+    private _canvas: HTMLCanvasElement;
     private _sizes: Sizes;
     private _time: Time;
     private _scene: THREE.Scene;
     private _camera: Camera;
     private _renderer: Renderer;
     private _world:World;
-   
+    private _resources:Resources;
+    
 
     private constructor(canvas:HTMLCanvasElement) //Como Acessar esta classe? Classes.singleton(); //Estudar Singleton!
     {
-        Classes._instance = this;
+        Application._instance = this;
         
         // Global access
         //window.classes = this
@@ -39,7 +40,7 @@ export default class Classes //Trocar o nome para Application
         this._sizes = new Sizes();
         this._time = new Time();
         this._scene = new THREE.Scene()
-        //this._resources = new Resources(sources)
+        this._resources = new Resources(sourceArray)
         this._camera = new Camera()
         this._renderer = new Renderer()
         this._world = new World()
@@ -80,4 +81,3 @@ export default class Classes //Trocar o nome para Application
 
     
 }
-
